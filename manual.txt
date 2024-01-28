@@ -1,0 +1,8 @@
+Сборка с помощью CMakeLists:
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++ && cmake --build build
+
+Запуск нашего лексера на тестовый файл с численным выражением:
+./build/lexer < numtest.inp
+
+-> построили массив лексем
+

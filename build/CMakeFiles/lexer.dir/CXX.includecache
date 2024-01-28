@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/masha/code_projects/MIPT_Ilab/ParaCL/build/lexer.cc
+inttypes.h
+-
+iostream
+-
+errno.h
+-
+cstdlib
+-
+cstdio
+-
+cstring
+-
+FlexLexer.h
+-
+unistd.h
+-
+
