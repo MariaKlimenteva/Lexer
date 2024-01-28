@@ -1,13 +1,12 @@
-#include <iostream>
+#include <memory>
 
-#include <FlexLexer.h>
+#include <numlex.hpp>
 
 int yyFlexLexer::yywrap() {return 1; }
 
 int main() {
-    FlexLexer *lexer = new yyFlexLexer;
+    auto lexer = std::make_unique<NumLexer>();
     while (lexer->yylex() != 0) {
-        // nothing (all is in rules)
+        lexer->print_current();
     }
-    delete lexer;
 }

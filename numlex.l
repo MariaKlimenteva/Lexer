@@ -1,24 +1,21 @@
+%option yyclass="NumLexer"
 %option c++
 
 %{
-
-using std::cout;
-using std::endl;
-
+#include "numlex.hpp"
 %}
 
 WS      [ \t\n\v]+
 DIGIT   [0-9]
 DIGIT1  [1-9]
-OP      [\+\-\=]
 
 %%
 
 {WS}                /* skip blanks and tabs */
-{OP}                { cout << "operator <" << yytext[0] << ">" << endl; return 1; }
-{DIGIT1}{DIGIT}*    { cout << "number <"   << yytext    << ">" << endl; return 1; }
-.                   { cout << "UNKNOWN <"  << yytext[0] << ">" << endl; return 1; }
+"+"                 return process_plus();
+"-"                 return process_minus();
+"="                 return process_eq();
+{DIGIT1}{DIGIT}*    return process_digit();
+.                   return process_unknown();
 
 %%
-
-//nothing

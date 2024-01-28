@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+../numlex.hpp
+FlexLexer.h
+-
+iostream
+-
+
 /home/masha/code_projects/MIPT_Ilab/ParaCL/build/lexer.cc
 inttypes.h
 -
@@ -21,6 +27,14 @@ cstring
 -
 FlexLexer.h
 -
+numlex.hpp
+/home/masha/code_projects/MIPT_Ilab/ParaCL/build/numlex.hpp
 unistd.h
+-
+
+/home/masha/code_projects/MIPT_Ilab/ParaCL/numlex.cc
+memory
+-
+numlex.hpp
 -
 
