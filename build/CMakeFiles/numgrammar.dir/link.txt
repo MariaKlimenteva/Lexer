@@ -1,0 +1,1 @@
+/usr/bin/g++     CMakeFiles/numgrammar.dir/driver.cc.o CMakeFiles/numgrammar.dir/parser.cc.o CMakeFiles/numgrammar.dir/lexer.cc.o  -o numgrammar 

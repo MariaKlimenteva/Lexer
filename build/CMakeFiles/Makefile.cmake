@@ -24,6 +24,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.16/Modules/Compiler/GNU-C.cmake"
   "/usr/share/cmake-3.16/Modules/Compiler/GNU-CXX.cmake"
   "/usr/share/cmake-3.16/Modules/Compiler/GNU.cmake"
+  "/usr/share/cmake-3.16/Modules/FindBISON.cmake"
   "/usr/share/cmake-3.16/Modules/FindFLEX.cmake"
   "/usr/share/cmake-3.16/Modules/FindPackageHandleStandardArgs.cmake"
   "/usr/share/cmake-3.16/Modules/FindPackageMessage.cmake"
@@ -48,5 +49,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/lexer.dir/DependInfo.cmake"
+  "CMakeFiles/numgrammar.dir/DependInfo.cmake"
   )

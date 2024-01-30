@@ -301,13 +301,6 @@ typedef flex_uint8_t YY_CHAR;
 #define YY_INTERACTIVE
 
 #include <FlexLexer.h>
-int yyFlexLexer::yylex()
-	{
-	LexerError( "yyFlexLexer::yylex invoked but %option yyclass used" );
-	return 0;
-	}
-
-#define YY_DECL int NumLexer::yylex()
 
 /* Done after the current pattern has been matched and before the
  * corresponding action - sets up yytext.
@@ -318,8 +311,8 @@ int yyFlexLexer::yylex()
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 7
-#define YY_END_OF_BUFFER 8
+#define YY_NUM_RULES 8
+#define YY_END_OF_BUFFER 9
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -327,10 +320,10 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[14] =
+static const flex_int16_t yy_accept[15] =
     {   0,
-        0,    0,    8,    6,    1,    1,    2,    3,    5,    4,
-        1,    5,    0
+        0,    0,    9,    7,    1,    1,    2,    3,    6,    5,
+        4,    1,    6,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -340,8 +333,8 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    2,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    4,    1,    5,    1,    1,    6,    7,    7,
-        7,    7,    7,    7,    7,    7,    7,    1,    1,    1,
-        8,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        7,    7,    7,    7,    7,    7,    7,    1,    8,    1,
+        9,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -365,33 +358,35 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[9] =
+static const YY_CHAR yy_meta[10] =
     {   0,
-        1,    2,    2,    1,    1,    3,    3,    1
+        1,    2,    2,    1,    1,    3,    3,    1,    1
     } ;
 
-static const flex_int16_t yy_base[16] =
+static const flex_int16_t yy_base[17] =
     {   0,
-        0,    0,   11,   12,    0,    0,   12,   12,    0,   12,
-        0,    0,   12,    8,    6
+        0,    0,   12,   13,    0,    0,   13,   13,    0,   13,
+       13,    0,    0,   13,    9,    7
     } ;
 
-static const flex_int16_t yy_def[16] =
+static const flex_int16_t yy_def[17] =
     {   0,
-       13,    1,   13,   13,   14,   14,   13,   13,   15,   13,
-       14,   15,    0,   13,   13
+       14,    1,   14,   14,   15,   15,   14,   14,   16,   14,
+       14,   15,   16,    0,   14,   14
     } ;
 
-static const flex_int16_t yy_nxt[21] =
+static const flex_int16_t yy_nxt[23] =
     {   0,
-        4,    5,    6,    7,    8,    4,    9,   10,   12,   11,
-       13,    3,   13,   13,   13,   13,   13,   13,   13,   13
+        4,    5,    6,    7,    8,    4,    9,   10,   11,   13,
+       12,   14,    3,   14,   14,   14,   14,   14,   14,   14,
+       14,   14
     } ;
 
-static const flex_int16_t yy_chk[21] =
+static const flex_int16_t yy_chk[23] =
     {   0,
-        1,    1,    1,    1,    1,    1,    1,    1,   15,   14,
-        3,   13,   13,   13,   13,   13,   13,   13,   13,   13
+        1,    1,    1,    1,    1,    1,    1,    1,    1,   16,
+       15,    3,   14,   14,   14,   14,   14,   14,   14,   14,
+       14,   14
     } ;
 
 /* The intent behind this definition is that it'll catch
@@ -401,11 +396,11 @@ static const flex_int16_t yy_chk[21] =
 #define yymore() yymore_used_but_not_detected
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
-#line 1 "numlex.l"
-#line 5 "numlex.l"
-#include "numlex.hpp"
-#line 408 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/lexer.cc"
-#line 409 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/lexer.cc"
+#line 1 "numgrammar.l"
+#line 4 "numgrammar.l"
+#include "numgrammar.tab.hh"
+#line 403 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/lexer.cc"
+#line 404 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/lexer.cc"
 
 #define INITIAL 0
 
@@ -537,10 +532,10 @@ YY_DECL
 		}
 
 	{
-#line 12 "numlex.l"
+#line 11 "numgrammar.l"
 
 
-#line 544 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/lexer.cc"
+#line 539 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/lexer.cc"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -567,13 +562,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 14 )
+				if ( yy_current_state >= 15 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 12 );
+		while ( yy_base[yy_current_state] != 13 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -600,37 +595,42 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 14 "numlex.l"
+#line 13 "numgrammar.l"
 /* skip blanks and tabs */
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 15 "numlex.l"
-return process_plus();
+#line 14 "numgrammar.l"
+return yy::parser::token_type::PLUS;
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 16 "numlex.l"
-return process_minus();
+#line 15 "numgrammar.l"
+return yy::parser::token_type::MINUS;
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 17 "numlex.l"
-return process_eq();
+#line 16 "numgrammar.l"
+return yy::parser::token_type::EQUAL;
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 18 "numlex.l"
-return process_digit();
+#line 17 "numgrammar.l"
+return yy::parser::token_type::SCOLON;
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 19 "numlex.l"
-return process_unknown();
+#line 18 "numgrammar.l"
+return yy::parser::token_type::NUMBER;
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 21 "numlex.l"
+#line 19 "numgrammar.l"
+return yy::parser::token_type::ERR;
+	YY_BREAK
+case 8:
+YY_RULE_SETUP
+#line 21 "numgrammar.l"
 ECHO;
 	YY_BREAK
 #line 637 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/lexer.cc"
@@ -1050,7 +1050,7 @@ int yyFlexLexer::yy_get_next_buffer()
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 14 )
+			if ( yy_current_state >= 15 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1078,11 +1078,11 @@ int yyFlexLexer::yy_get_next_buffer()
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 14 )
+		if ( yy_current_state >= 15 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 13);
+	yy_is_jam = (yy_current_state == 14);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1596,5 +1596,5 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 21 "numlex.l"
+#line 21 "numgrammar.l"
 

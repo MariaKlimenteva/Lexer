@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/masha/code_projects/MIPT_Ilab/ParaCL/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,17 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named lexer
+# Target rules for targets named numgrammar
 
 # Build rule for target.
-lexer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 lexer
-.PHONY : lexer
+numgrammar: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 numgrammar
+.PHONY : numgrammar
 
 # fast build rule for target.
-lexer/fast:
-	$(MAKE) -f CMakeFiles/lexer.dir/build.make CMakeFiles/lexer.dir/build
-.PHONY : lexer/fast
+numgrammar/fast:
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/build
+.PHONY : numgrammar/fast
+
+driver.o: driver.cc.o
+
+.PHONY : driver.o
+
+# target to build an object file
+driver.cc.o:
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/driver.cc.o
+.PHONY : driver.cc.o
+
+driver.i: driver.cc.i
+
+.PHONY : driver.i
+
+# target to preprocess a source file
+driver.cc.i:
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/driver.cc.i
+.PHONY : driver.cc.i
+
+driver.s: driver.cc.s
+
+.PHONY : driver.s
+
+# target to generate assembly for a file
+driver.cc.s:
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/driver.cc.s
+.PHONY : driver.cc.s
 
 lexer.o: lexer.cc.o
 
@@ -129,7 +156,7 @@ lexer.o: lexer.cc.o
 
 # target to build an object file
 lexer.cc.o:
-	$(MAKE) -f CMakeFiles/lexer.dir/build.make CMakeFiles/lexer.dir/lexer.cc.o
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/lexer.cc.o
 .PHONY : lexer.cc.o
 
 lexer.i: lexer.cc.i
@@ -138,7 +165,7 @@ lexer.i: lexer.cc.i
 
 # target to preprocess a source file
 lexer.cc.i:
-	$(MAKE) -f CMakeFiles/lexer.dir/build.make CMakeFiles/lexer.dir/lexer.cc.i
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/lexer.cc.i
 .PHONY : lexer.cc.i
 
 lexer.s: lexer.cc.s
@@ -147,35 +174,35 @@ lexer.s: lexer.cc.s
 
 # target to generate assembly for a file
 lexer.cc.s:
-	$(MAKE) -f CMakeFiles/lexer.dir/build.make CMakeFiles/lexer.dir/lexer.cc.s
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/lexer.cc.s
 .PHONY : lexer.cc.s
 
-numlex.o: numlex.cc.o
+parser.o: parser.cc.o
 
-.PHONY : numlex.o
+.PHONY : parser.o
 
 # target to build an object file
-numlex.cc.o:
-	$(MAKE) -f CMakeFiles/lexer.dir/build.make CMakeFiles/lexer.dir/numlex.cc.o
-.PHONY : numlex.cc.o
+parser.cc.o:
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/parser.cc.o
+.PHONY : parser.cc.o
 
-numlex.i: numlex.cc.i
+parser.i: parser.cc.i
 
-.PHONY : numlex.i
+.PHONY : parser.i
 
 # target to preprocess a source file
-numlex.cc.i:
-	$(MAKE) -f CMakeFiles/lexer.dir/build.make CMakeFiles/lexer.dir/numlex.cc.i
-.PHONY : numlex.cc.i
+parser.cc.i:
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/parser.cc.i
+.PHONY : parser.cc.i
 
-numlex.s: numlex.cc.s
+parser.s: parser.cc.s
 
-.PHONY : numlex.s
+.PHONY : parser.s
 
 # target to generate assembly for a file
-numlex.cc.s:
-	$(MAKE) -f CMakeFiles/lexer.dir/build.make CMakeFiles/lexer.dir/numlex.cc.s
-.PHONY : numlex.cc.s
+parser.cc.s:
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/parser.cc.s
+.PHONY : parser.cc.s
 
 # Help Target
 help:
@@ -183,15 +210,18 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... lexer"
+	@echo "... rebuild_cache"
+	@echo "... numgrammar"
+	@echo "... driver.o"
+	@echo "... driver.i"
+	@echo "... driver.s"
 	@echo "... lexer.o"
 	@echo "... lexer.i"
 	@echo "... lexer.s"
-	@echo "... numlex.o"
-	@echo "... numlex.i"
-	@echo "... numlex.s"
+	@echo "... parser.o"
+	@echo "... parser.i"
+	@echo "... parser.s"
 .PHONY : help
 
 
