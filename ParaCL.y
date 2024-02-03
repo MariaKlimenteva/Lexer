@@ -85,10 +85,13 @@ statement: assign | conditional | cycle | expression SCOLON
 
 assign: TYPE_ID ASSIGN expression SCOLON {  
     if ($3 == -1) {
-        std::cout << "Enter a value for " << $1 << ": ";
-                    std::cin >> $3;
+        std::cout << "Enter a value for " << $1 << ": " << std::endl;
+        std::cin >> $3;
+
+        $$ = $3;
+        std::cout << "Assigned " << $3 << " to " << $1 << std::endl;
+        std::cout << "The resulting value: " << $$ << std::endl;
     }
-    std::cout << "Assigned " << $3 << " to " << $1 << std::endl;
 }
 ;
 
@@ -160,7 +163,10 @@ primary: MINUS primary { $$ = -$2; }
        
 | LPAREN expression RPAREN
        
-| TYPE_NUM
+| TYPE_NUM { 
+    $$ = $1;
+    std::cout << " Присвоили число " << $$ << std::endl; 
+}
        
 | TYPE_ID
 ;

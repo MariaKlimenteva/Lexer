@@ -26,9 +26,17 @@ TYPE_NUM    [0-9]+
 "?"                 return yy::parser::token_type::INPUT;
 "<="                return yy::parser::token_type::LESSEQ;
 ">="                return yy::parser::token_type::GREATEREQ;
+"!="                return yy::parser::token_type::NOTEQUAL;
+"=="                return yy::parser::token_type::EQUAL;
+"/"                 return yy::parser::token_type::DIVIDE;
+"*"                 return yy::parser::token_type::MULTIPLY;
+
+"||"                return yy::parser::token_type::OR;
+"&&"                return yy::parser::token_type::AND;
 
 "if"                return yy::parser::token_type::IF;
 "while"             return yy::parser::token_type::WHILE;
+"else"              return yy::parser::token_type::ELSE;
 {TYPE_NUM}          return yy::parser::token_type::TYPE_NUM;
 {TYPE_ID}           return yy::parser::token_type::TYPE_ID;
                 

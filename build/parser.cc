@@ -750,160 +750,166 @@ namespace yy {
 #line 86 "ParaCL.y"
                                          {  
     if (yystack_[1].value.as < int > () == -1) {
-        std::cout << "Enter a value for " << yystack_[3].value.as < int > () << ": ";
-                    std::cin >> yystack_[1].value.as < int > ();
+        std::cout << "Enter a value for " << yystack_[3].value.as < int > () << ": " << std::endl;
+        std::cin >> yystack_[1].value.as < int > ();
+
+        yylhs.value.as < int > () = yystack_[1].value.as < int > ();
+        std::cout << "Assigned " << yystack_[1].value.as < int > () << " to " << yystack_[3].value.as < int > () << std::endl;
+        std::cout << "The resulting value: " << yylhs.value.as < int > () << std::endl;
     }
-    std::cout << "Assigned " << yystack_[1].value.as < int > () << " to " << yystack_[3].value.as < int > () << std::endl;
 }
-#line 759 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 762 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 10:
-#line 95 "ParaCL.y"
+#line 98 "ParaCL.y"
                                                                    {std::cout << "Цикл" <<std::endl;}
-#line 765 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 768 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 13:
-#line 102 "ParaCL.y"
+#line 105 "ParaCL.y"
              { yylhs.value.as < int > () = 0; }
-#line 771 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 774 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 14:
-#line 105 "ParaCL.y"
+#line 108 "ParaCL.y"
                                    {
     yylhs.value.as < int > () = (yystack_[2].value.as < int > () && yystack_[0].value.as < int > ());
     std::cout << "Checking: " << yystack_[2].value.as < int > () << " vs " << yystack_[0].value.as < int > () << "; Result: " << yylhs.value.as < int > () << std::endl;
 }
-#line 780 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 783 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 15:
-#line 110 "ParaCL.y"
+#line 113 "ParaCL.y"
                         {
     yylhs.value.as < int > () = (yystack_[2].value.as < int > () || yystack_[0].value.as < int > ());
     std::cout << "Checking: " << yystack_[2].value.as < int > () << " vs " << yystack_[0].value.as < int > () << "; Result: " << yylhs.value.as < int > () << std::endl;
 }
-#line 789 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 792 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 16:
-#line 115 "ParaCL.y"
+#line 118 "ParaCL.y"
   { yylhs.value.as < int > () = yystack_[0].value.as < int > (); }
-#line 795 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 798 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 17:
-#line 117 "ParaCL.y"
+#line 120 "ParaCL.y"
         { yylhs.value.as < int > () = -1; }
-#line 801 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 804 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 18:
-#line 120 "ParaCL.y"
+#line 123 "ParaCL.y"
                                       {
     yylhs.value.as < int > () = (yystack_[2].value.as < int > () >= yystack_[0].value.as < int > ());
     std::cout << "Checking: " << yystack_[2].value.as < int > () << " vs " << yystack_[0].value.as < int > () << "; Result: " << yylhs.value.as < int > () << std::endl;
 }
-#line 810 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 813 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 19:
-#line 125 "ParaCL.y"
+#line 128 "ParaCL.y"
                             {
     yylhs.value.as < int > () = (yystack_[2].value.as < int > () <= yystack_[0].value.as < int > ());
     std::cout << "Checking: " << yystack_[2].value.as < int > () << " vs " << yystack_[0].value.as < int > () << "; Result: " << yylhs.value.as < int > () << std::endl;
 }
-#line 819 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 822 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 20:
-#line 130 "ParaCL.y"
+#line 133 "ParaCL.y"
                           {
     yylhs.value.as < int > () = (yystack_[2].value.as < int > () < yystack_[0].value.as < int > ());
     std::cout << "Checking: " << yystack_[2].value.as < int > () << " vs " << yystack_[0].value.as < int > () << "; Result: " << yylhs.value.as < int > () << std::endl;
 }
-#line 828 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 831 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 21:
-#line 135 "ParaCL.y"
+#line 138 "ParaCL.y"
                              {
     yylhs.value.as < int > () = (yystack_[2].value.as < int > () > yystack_[0].value.as < int > ());
     std::cout << "Checking: " << yystack_[2].value.as < int > () << " vs " << yystack_[0].value.as < int > () << "; Result: " << yylhs.value.as < int > () << std::endl;
 }
-#line 837 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 840 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 22:
-#line 140 "ParaCL.y"
+#line 143 "ParaCL.y"
   { yylhs.value.as < int > () = yystack_[0].value.as < int > (); }
-#line 843 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 846 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 23:
-#line 143 "ParaCL.y"
+#line 146 "ParaCL.y"
                                  { yylhs.value.as < int > () = yystack_[2].value.as < int > () + yystack_[0].value.as < int > (); }
-#line 849 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 852 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 24:
-#line 145 "ParaCL.y"
+#line 148 "ParaCL.y"
                         { yylhs.value.as < int > () = yystack_[2].value.as < int > () - yystack_[0].value.as < int > (); }
-#line 855 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 858 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 25:
-#line 147 "ParaCL.y"
+#line 150 "ParaCL.y"
   { yylhs.value.as < int > () = yystack_[0].value.as < int > (); }
-#line 861 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 864 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 26:
-#line 149 "ParaCL.y"
+#line 152 "ParaCL.y"
          { yylhs.value.as < int > () = 0; }
-#line 867 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 870 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 27:
-#line 152 "ParaCL.y"
+#line 155 "ParaCL.y"
                             { yylhs.value.as < int > () = yystack_[2].value.as < int > () * yystack_[0].value.as < int > (); }
-#line 873 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 876 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 28:
-#line 154 "ParaCL.y"
+#line 157 "ParaCL.y"
                       { yylhs.value.as < int > () = yystack_[2].value.as < int > () / yystack_[0].value.as < int > (); }
-#line 879 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 882 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 29:
-#line 156 "ParaCL.y"
+#line 159 "ParaCL.y"
   { yylhs.value.as < int > () = yystack_[0].value.as < int > (); }
-#line 885 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 888 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 30:
-#line 159 "ParaCL.y"
+#line 162 "ParaCL.y"
                        { yylhs.value.as < int > () = -yystack_[0].value.as < int > (); }
-#line 891 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 894 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 32:
-#line 163 "ParaCL.y"
-  { yylhs.value.as < int > () = yystack_[0].value.as < int > (); }
-#line 897 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 33:
-#line 165 "ParaCL.y"
-  { yylhs.value.as < int > () = yystack_[0].value.as < int > (); }
+#line 166 "ParaCL.y"
+           { 
+    yylhs.value.as < int > () = yystack_[0].value.as < int > ();
+    std::cout << " Присвоили число " << yylhs.value.as < int > () << std::endl; 
+}
 #line 903 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
+  case 33:
+#line 171 "ParaCL.y"
+  { yylhs.value.as < int > () = yystack_[0].value.as < int > (); }
+#line 909 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+    break;
 
-#line 907 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+
+#line 913 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
 
             default:
               break;
@@ -1205,9 +1211,9 @@ namespace yy {
   parser::yyrline_[] =
   {
        0,    77,    77,    80,    80,    83,    83,    83,    83,    86,
-      95,    98,   101,   102,   105,   110,   115,   117,   120,   125,
-     130,   135,   140,   143,   145,   147,   149,   152,   154,   156,
-     159,   161,   163,   165
+      98,   101,   104,   105,   108,   113,   118,   120,   123,   128,
+     133,   138,   143,   146,   148,   150,   152,   155,   157,   159,
+     162,   164,   166,   171
   };
 
   // Print the state stack on the debug stream.
@@ -1289,9 +1295,9 @@ namespace yy {
   }
 
 } // yy
-#line 1293 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 1299 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
 
-#line 168 "ParaCL.y"
+#line 174 "ParaCL.y"
 
 
 namespace yy {
