@@ -53,7 +53,7 @@ CMAKE_BINARY_DIR = /home/masha/code_projects/MIPT_Ilab/ParaCL/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/ParaCL.dir/all
+all: CMakeFiles/numgrammar.dir/all
 
 .PHONY : all
 
@@ -63,36 +63,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/ParaCL.dir/clean
+clean: CMakeFiles/numgrammar.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/ParaCL.dir
+# Target rules for target CMakeFiles/numgrammar.dir
 
 # All Build rule for target.
-CMakeFiles/ParaCL.dir/all:
-	$(MAKE) -f CMakeFiles/ParaCL.dir/build.make CMakeFiles/ParaCL.dir/depend
-	$(MAKE) -f CMakeFiles/ParaCL.dir/build.make CMakeFiles/ParaCL.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/masha/code_projects/MIPT_Ilab/ParaCL/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target ParaCL"
-.PHONY : CMakeFiles/ParaCL.dir/all
+CMakeFiles/numgrammar.dir/all:
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/depend
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/masha/code_projects/MIPT_Ilab/ParaCL/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target numgrammar"
+.PHONY : CMakeFiles/numgrammar.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/ParaCL.dir/rule: cmake_check_build_system
+CMakeFiles/numgrammar.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/masha/code_projects/MIPT_Ilab/ParaCL/build/CMakeFiles 6
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ParaCL.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/numgrammar.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/masha/code_projects/MIPT_Ilab/ParaCL/build/CMakeFiles 0
-.PHONY : CMakeFiles/ParaCL.dir/rule
+.PHONY : CMakeFiles/numgrammar.dir/rule
 
 # Convenience name for target.
-ParaCL: CMakeFiles/ParaCL.dir/rule
+numgrammar: CMakeFiles/numgrammar.dir/rule
 
-.PHONY : ParaCL
+.PHONY : numgrammar
 
 # clean rule for target.
-CMakeFiles/ParaCL.dir/clean:
-	$(MAKE) -f CMakeFiles/ParaCL.dir/build.make CMakeFiles/ParaCL.dir/clean
-.PHONY : CMakeFiles/ParaCL.dir/clean
+CMakeFiles/numgrammar.dir/clean:
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/clean
+.PHONY : CMakeFiles/numgrammar.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

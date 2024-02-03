@@ -45,16 +45,16 @@ CMAKE_CXX_COMPILER_RANLIB:FILEPATH=/usr/bin/gcc-ranlib-9
 CMAKE_CXX_FLAGS:STRING=
 
 //Flags used by the CXX compiler during DEBUG builds.
-CMAKE_CXX_FLAGS_DEBUG:STRING=-g
+CMAKE_CXX_FLAGS_DEBUG:STRING=
 
 //Flags used by the CXX compiler during MINSIZEREL builds.
-CMAKE_CXX_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
+CMAKE_CXX_FLAGS_MINSIZEREL:STRING=
 
 //Flags used by the CXX compiler during RELEASE builds.
-CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
+CMAKE_CXX_FLAGS_RELEASE:STRING=
 
 //Flags used by the CXX compiler during RELWITHDEBINFO builds.
-CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
+CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=
 
 //C compiler
 CMAKE_C_COMPILER:FILEPATH=/usr/bin/cc
@@ -148,7 +148,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=ParaCL
+CMAKE_PROJECT_NAME:STATIC=numgrammar
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -222,13 +222,19 @@ FLEX_INCLUDE_DIR:PATH=/usr/include
 FL_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libfl.so
 
 //file with grammar
-GRAMMAR:STRING=ParaCL.y
+GRAMMAR:STRING=numgrammar-sr.y
 
 //Value Computed by CMake
-ParaCL_BINARY_DIR:STATIC=/home/masha/code_projects/MIPT_Ilab/ParaCL/build
+lexer_BINARY_DIR:STATIC=/home/masha/code_projects/MIPT_Ilab/ParaCL/build
 
 //Value Computed by CMake
-ParaCL_SOURCE_DIR:STATIC=/home/masha/code_projects/MIPT_Ilab/ParaCL
+lexer_SOURCE_DIR:STATIC=/home/masha/code_projects/MIPT_Ilab/ParaCL
+
+//Value Computed by CMake
+numgrammar_BINARY_DIR:STATIC=/home/masha/code_projects/MIPT_Ilab/ParaCL/build
+
+//Value Computed by CMake
+numgrammar_SOURCE_DIR:STATIC=/home/masha/code_projects/MIPT_Ilab/ParaCL
 
 
 ########################

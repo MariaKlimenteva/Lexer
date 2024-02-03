@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/masha/code_projects/MIPT_Ilab/ParaCL/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,71 +111,71 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ParaCL
+# Target rules for targets named numgrammar
 
 # Build rule for target.
-ParaCL: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ParaCL
-.PHONY : ParaCL
+numgrammar: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 numgrammar
+.PHONY : numgrammar
 
 # fast build rule for target.
-ParaCL/fast:
-	$(MAKE) -f CMakeFiles/ParaCL.dir/build.make CMakeFiles/ParaCL.dir/build
-.PHONY : ParaCL/fast
+numgrammar/fast:
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/build
+.PHONY : numgrammar/fast
 
-ParaCL_lexer.o: ParaCL_lexer.cc.o
+driver.o: driver.cc.o
 
-.PHONY : ParaCL_lexer.o
-
-# target to build an object file
-ParaCL_lexer.cc.o:
-	$(MAKE) -f CMakeFiles/ParaCL.dir/build.make CMakeFiles/ParaCL.dir/ParaCL_lexer.cc.o
-.PHONY : ParaCL_lexer.cc.o
-
-ParaCL_lexer.i: ParaCL_lexer.cc.i
-
-.PHONY : ParaCL_lexer.i
-
-# target to preprocess a source file
-ParaCL_lexer.cc.i:
-	$(MAKE) -f CMakeFiles/ParaCL.dir/build.make CMakeFiles/ParaCL.dir/ParaCL_lexer.cc.i
-.PHONY : ParaCL_lexer.cc.i
-
-ParaCL_lexer.s: ParaCL_lexer.cc.s
-
-.PHONY : ParaCL_lexer.s
-
-# target to generate assembly for a file
-ParaCL_lexer.cc.s:
-	$(MAKE) -f CMakeFiles/ParaCL.dir/build.make CMakeFiles/ParaCL.dir/ParaCL_lexer.cc.s
-.PHONY : ParaCL_lexer.cc.s
-
-ParaCLdriver.o: ParaCLdriver.cc.o
-
-.PHONY : ParaCLdriver.o
+.PHONY : driver.o
 
 # target to build an object file
-ParaCLdriver.cc.o:
-	$(MAKE) -f CMakeFiles/ParaCL.dir/build.make CMakeFiles/ParaCL.dir/ParaCLdriver.cc.o
-.PHONY : ParaCLdriver.cc.o
+driver.cc.o:
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/driver.cc.o
+.PHONY : driver.cc.o
 
-ParaCLdriver.i: ParaCLdriver.cc.i
+driver.i: driver.cc.i
 
-.PHONY : ParaCLdriver.i
+.PHONY : driver.i
 
 # target to preprocess a source file
-ParaCLdriver.cc.i:
-	$(MAKE) -f CMakeFiles/ParaCL.dir/build.make CMakeFiles/ParaCL.dir/ParaCLdriver.cc.i
-.PHONY : ParaCLdriver.cc.i
+driver.cc.i:
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/driver.cc.i
+.PHONY : driver.cc.i
 
-ParaCLdriver.s: ParaCLdriver.cc.s
+driver.s: driver.cc.s
 
-.PHONY : ParaCLdriver.s
+.PHONY : driver.s
 
 # target to generate assembly for a file
-ParaCLdriver.cc.s:
-	$(MAKE) -f CMakeFiles/ParaCL.dir/build.make CMakeFiles/ParaCL.dir/ParaCLdriver.cc.s
-.PHONY : ParaCLdriver.cc.s
+driver.cc.s:
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/driver.cc.s
+.PHONY : driver.cc.s
+
+lexer.o: lexer.cc.o
+
+.PHONY : lexer.o
+
+# target to build an object file
+lexer.cc.o:
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/lexer.cc.o
+.PHONY : lexer.cc.o
+
+lexer.i: lexer.cc.i
+
+.PHONY : lexer.i
+
+# target to preprocess a source file
+lexer.cc.i:
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/lexer.cc.i
+.PHONY : lexer.cc.i
+
+lexer.s: lexer.cc.s
+
+.PHONY : lexer.s
+
+# target to generate assembly for a file
+lexer.cc.s:
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/lexer.cc.s
+.PHONY : lexer.cc.s
 
 parser.o: parser.cc.o
 
@@ -183,7 +183,7 @@ parser.o: parser.cc.o
 
 # target to build an object file
 parser.cc.o:
-	$(MAKE) -f CMakeFiles/ParaCL.dir/build.make CMakeFiles/ParaCL.dir/parser.cc.o
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/parser.cc.o
 .PHONY : parser.cc.o
 
 parser.i: parser.cc.i
@@ -192,7 +192,7 @@ parser.i: parser.cc.i
 
 # target to preprocess a source file
 parser.cc.i:
-	$(MAKE) -f CMakeFiles/ParaCL.dir/build.make CMakeFiles/ParaCL.dir/parser.cc.i
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/parser.cc.i
 .PHONY : parser.cc.i
 
 parser.s: parser.cc.s
@@ -201,7 +201,7 @@ parser.s: parser.cc.s
 
 # target to generate assembly for a file
 parser.cc.s:
-	$(MAKE) -f CMakeFiles/ParaCL.dir/build.make CMakeFiles/ParaCL.dir/parser.cc.s
+	$(MAKE) -f CMakeFiles/numgrammar.dir/build.make CMakeFiles/numgrammar.dir/parser.cc.s
 .PHONY : parser.cc.s
 
 # Help Target
@@ -210,15 +210,15 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... ParaCL"
-	@echo "... ParaCL_lexer.o"
-	@echo "... ParaCL_lexer.i"
-	@echo "... ParaCL_lexer.s"
-	@echo "... ParaCLdriver.o"
-	@echo "... ParaCLdriver.i"
-	@echo "... ParaCLdriver.s"
+	@echo "... rebuild_cache"
+	@echo "... numgrammar"
+	@echo "... driver.o"
+	@echo "... driver.i"
+	@echo "... driver.s"
+	@echo "... lexer.o"
+	@echo "... lexer.i"
+	@echo "... lexer.s"
 	@echo "... parser.o"
 	@echo "... parser.i"
 	@echo "... parser.s"

@@ -37,20 +37,21 @@
 
 
 
-#include "ParaCL.tab.hh"
+#include "numgrammar.tab.hh"
 
 
 // Unqualified %code blocks.
-#line 17 "ParaCL.y"
+#line 18 "numgrammar-sr.y"
 
-    #include "ParaCLdriver.hpp"
+#include "numdriver.hpp"
 
-    namespace yy {
-        parser::token_type yylex(parser::semantic_type* yyval,
-                                 Driver* driver);
-    }
+namespace yy {
 
-#line 54 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+parser::token_type yylex(parser::semantic_type* yylval,                         
+                         NumDriver* driver);
+}
+
+#line 55 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
 
 
 #ifndef YY_
@@ -122,11 +123,11 @@
 #define YYRECOVERING()  (!!yyerrstatus_)
 
 namespace yy {
-#line 126 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 127 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
 
 
   /// Build a parser object.
-  parser::parser (yy::Driver* driver_yyarg)
+  parser::parser (yy::NumDriver* driver_yyarg)
 #if YYDEBUG
     : yydebug_ (false),
       yycdebug_ (&std::cerr),
@@ -155,19 +156,9 @@ namespace yy {
   {
     switch (this->type_get ())
     {
-      case 26: // TYPE_NUM
-      case 27: // TYPE_ID
-      case 29: // assign
-      case 30: // expression
-      case 31: // arithmetic
-      case 32: // cycle
-      case 33: // conditional
-      case 34: // boolean
-      case 35: // term
-      case 36: // primary
-      case 37: // statement
-      case 38: // statement_list
-      case 39: // else_maybe
+      case 8: // NUMBER
+      case 12: // equals
+      case 13: // expr
         value.move< int > (std::move (that.value));
         break;
 
@@ -185,19 +176,9 @@ namespace yy {
   {
     switch (this->type_get ())
     {
-      case 26: // TYPE_NUM
-      case 27: // TYPE_ID
-      case 29: // assign
-      case 30: // expression
-      case 31: // arithmetic
-      case 32: // cycle
-      case 33: // conditional
-      case 34: // boolean
-      case 35: // term
-      case 36: // primary
-      case 37: // statement
-      case 38: // statement_list
-      case 39: // else_maybe
+      case 8: // NUMBER
+      case 12: // equals
+      case 13: // expr
         value.copy< int > (YY_MOVE (that.value));
         break;
 
@@ -223,19 +204,9 @@ namespace yy {
     super_type::move (s);
     switch (this->type_get ())
     {
-      case 26: // TYPE_NUM
-      case 27: // TYPE_ID
-      case 29: // assign
-      case 30: // expression
-      case 31: // arithmetic
-      case 32: // cycle
-      case 33: // conditional
-      case 34: // boolean
-      case 35: // term
-      case 36: // primary
-      case 37: // statement
-      case 38: // statement_list
-      case 39: // else_maybe
+      case 8: // NUMBER
+      case 12: // equals
+      case 13: // expr
         value.move< int > (YY_MOVE (s.value));
         break;
 
@@ -329,19 +300,9 @@ namespace yy {
   {
     switch (that.type_get ())
     {
-      case 26: // TYPE_NUM
-      case 27: // TYPE_ID
-      case 29: // assign
-      case 30: // expression
-      case 31: // arithmetic
-      case 32: // cycle
-      case 33: // conditional
-      case 34: // boolean
-      case 35: // term
-      case 36: // primary
-      case 37: // statement
-      case 38: // statement_list
-      case 39: // else_maybe
+      case 8: // NUMBER
+      case 12: // equals
+      case 13: // expr
         value.YY_MOVE_OR_COPY< int > (YY_MOVE (that.value));
         break;
 
@@ -360,19 +321,9 @@ namespace yy {
   {
     switch (that.type_get ())
     {
-      case 26: // TYPE_NUM
-      case 27: // TYPE_ID
-      case 29: // assign
-      case 30: // expression
-      case 31: // arithmetic
-      case 32: // cycle
-      case 33: // conditional
-      case 34: // boolean
-      case 35: // term
-      case 36: // primary
-      case 37: // statement
-      case 38: // statement_list
-      case 39: // else_maybe
+      case 8: // NUMBER
+      case 12: // equals
+      case 13: // expr
         value.move< int > (YY_MOVE (that.value));
         break;
 
@@ -391,19 +342,9 @@ namespace yy {
     state = that.state;
     switch (that.type_get ())
     {
-      case 26: // TYPE_NUM
-      case 27: // TYPE_ID
-      case 29: // assign
-      case 30: // expression
-      case 31: // arithmetic
-      case 32: // cycle
-      case 33: // conditional
-      case 34: // boolean
-      case 35: // term
-      case 36: // primary
-      case 37: // statement
-      case 38: // statement_list
-      case 39: // else_maybe
+      case 8: // NUMBER
+      case 12: // equals
+      case 13: // expr
         value.copy< int > (that.value);
         break;
 
@@ -420,19 +361,9 @@ namespace yy {
     state = that.state;
     switch (that.type_get ())
     {
-      case 26: // TYPE_NUM
-      case 27: // TYPE_ID
-      case 29: // assign
-      case 30: // expression
-      case 31: // arithmetic
-      case 32: // cycle
-      case 33: // conditional
-      case 34: // boolean
-      case 35: // term
-      case 36: // primary
-      case 37: // statement
-      case 38: // statement_list
-      case 39: // else_maybe
+      case 8: // NUMBER
+      case 12: // equals
+      case 13: // expr
         value.move< int > (that.value);
         break;
 
@@ -680,19 +611,9 @@ namespace yy {
          when using variants.  */
       switch (yyr1_[yyn])
     {
-      case 26: // TYPE_NUM
-      case 27: // TYPE_ID
-      case 29: // assign
-      case 30: // expression
-      case 31: // arithmetic
-      case 32: // cycle
-      case 33: // conditional
-      case 34: // boolean
-      case 35: // term
-      case 36: // primary
-      case 37: // statement
-      case 38: // statement_list
-      case 39: // else_maybe
+      case 8: // NUMBER
+      case 12: // equals
+      case 13: // expr
         yylhs.value.emplace< int > ();
         break;
 
@@ -710,200 +631,37 @@ namespace yy {
         {
           switch (yyn)
             {
-  case 3:
-#line 80 "ParaCL.y"
-                { yylhs.value.as < int > () = yystack_[0].value.as < int > (); }
-#line 717 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 4:
-#line 80 "ParaCL.y"
-                            { yylhs.value.as < int > () = yystack_[1].value.as < int > (); }
-#line 723 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
   case 5:
-#line 83 "ParaCL.y"
-           { yylhs.value.as < int > () = yystack_[0].value.as < int > (); }
-#line 729 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 53 "numgrammar-sr.y"
+                              { 
+                                yylhs.value.as < int > () = (yystack_[2].value.as < int > () == yystack_[0].value.as < int > ()); 
+                                std::cout << "Checking: " << yystack_[2].value.as < int > () << " vs " << yystack_[0].value.as < int > () 
+                                          << "; Result: " << yylhs.value.as < int > ()
+                                          << std::endl; 
+                              }
+#line 643 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 6:
-#line 83 "ParaCL.y"
-                    { yylhs.value.as < int > () = yystack_[0].value.as < int > (); }
-#line 735 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 61 "numgrammar-sr.y"
+                              { yylhs.value.as < int > () = yystack_[2].value.as < int > () + yystack_[0].value.as < int > (); }
+#line 649 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 7:
-#line 83 "ParaCL.y"
-                                  { yylhs.value.as < int > () = yystack_[0].value.as < int > (); }
-#line 741 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 62 "numgrammar-sr.y"
+                              { yylhs.value.as < int > () = yystack_[2].value.as < int > () - yystack_[0].value.as < int > (); }
+#line 655 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
   case 8:
-#line 83 "ParaCL.y"
-                                          { yylhs.value.as < int > () = yystack_[1].value.as < int > (); }
-#line 747 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 9:
-#line 86 "ParaCL.y"
-                                         {  
-    if (yystack_[1].value.as < int > () == -1) {
-        std::cout << "Enter a value for " << yystack_[3].value.as < int > () << ": ";
-                    std::cin >> yystack_[1].value.as < int > ();
-    }
-    std::cout << "Assigned " << yystack_[1].value.as < int > () << " to " << yystack_[3].value.as < int > () << std::endl;
-}
-#line 759 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 10:
-#line 95 "ParaCL.y"
-                                                                   {std::cout << "Цикл" <<std::endl;}
-#line 765 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 13:
-#line 102 "ParaCL.y"
-             { yylhs.value.as < int > () = 0; }
-#line 771 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 14:
-#line 105 "ParaCL.y"
-                                   {
-    yylhs.value.as < int > () = (yystack_[2].value.as < int > () && yystack_[0].value.as < int > ());
-    std::cout << "Checking: " << yystack_[2].value.as < int > () << " vs " << yystack_[0].value.as < int > () << "; Result: " << yylhs.value.as < int > () << std::endl;
-}
-#line 780 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 15:
-#line 110 "ParaCL.y"
-                        {
-    yylhs.value.as < int > () = (yystack_[2].value.as < int > () || yystack_[0].value.as < int > ());
-    std::cout << "Checking: " << yystack_[2].value.as < int > () << " vs " << yystack_[0].value.as < int > () << "; Result: " << yylhs.value.as < int > () << std::endl;
-}
-#line 789 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 16:
-#line 115 "ParaCL.y"
-  { yylhs.value.as < int > () = yystack_[0].value.as < int > (); }
-#line 795 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 17:
-#line 117 "ParaCL.y"
-        { yylhs.value.as < int > () = -1; }
-#line 801 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 18:
-#line 120 "ParaCL.y"
-                                      {
-    yylhs.value.as < int > () = (yystack_[2].value.as < int > () >= yystack_[0].value.as < int > ());
-    std::cout << "Checking: " << yystack_[2].value.as < int > () << " vs " << yystack_[0].value.as < int > () << "; Result: " << yylhs.value.as < int > () << std::endl;
-}
-#line 810 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 19:
-#line 125 "ParaCL.y"
-                            {
-    yylhs.value.as < int > () = (yystack_[2].value.as < int > () <= yystack_[0].value.as < int > ());
-    std::cout << "Checking: " << yystack_[2].value.as < int > () << " vs " << yystack_[0].value.as < int > () << "; Result: " << yylhs.value.as < int > () << std::endl;
-}
-#line 819 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 20:
-#line 130 "ParaCL.y"
-                          {
-    yylhs.value.as < int > () = (yystack_[2].value.as < int > () < yystack_[0].value.as < int > ());
-    std::cout << "Checking: " << yystack_[2].value.as < int > () << " vs " << yystack_[0].value.as < int > () << "; Result: " << yylhs.value.as < int > () << std::endl;
-}
-#line 828 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 21:
-#line 135 "ParaCL.y"
-                             {
-    yylhs.value.as < int > () = (yystack_[2].value.as < int > () > yystack_[0].value.as < int > ());
-    std::cout << "Checking: " << yystack_[2].value.as < int > () << " vs " << yystack_[0].value.as < int > () << "; Result: " << yylhs.value.as < int > () << std::endl;
-}
-#line 837 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 22:
-#line 140 "ParaCL.y"
-  { yylhs.value.as < int > () = yystack_[0].value.as < int > (); }
-#line 843 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 23:
-#line 143 "ParaCL.y"
-                                 { yylhs.value.as < int > () = yystack_[2].value.as < int > () + yystack_[0].value.as < int > (); }
-#line 849 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 24:
-#line 145 "ParaCL.y"
-                        { yylhs.value.as < int > () = yystack_[2].value.as < int > () - yystack_[0].value.as < int > (); }
-#line 855 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 25:
-#line 147 "ParaCL.y"
-  { yylhs.value.as < int > () = yystack_[0].value.as < int > (); }
-#line 861 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 26:
-#line 149 "ParaCL.y"
-         { yylhs.value.as < int > () = 0; }
-#line 867 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 27:
-#line 152 "ParaCL.y"
-                            { yylhs.value.as < int > () = yystack_[2].value.as < int > () * yystack_[0].value.as < int > (); }
-#line 873 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 28:
-#line 154 "ParaCL.y"
-                      { yylhs.value.as < int > () = yystack_[2].value.as < int > () / yystack_[0].value.as < int > (); }
-#line 879 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 29:
-#line 156 "ParaCL.y"
-  { yylhs.value.as < int > () = yystack_[0].value.as < int > (); }
-#line 885 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 30:
-#line 159 "ParaCL.y"
-                       { yylhs.value.as < int > () = -yystack_[0].value.as < int > (); }
-#line 891 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 32:
-#line 163 "ParaCL.y"
-  { yylhs.value.as < int > () = yystack_[0].value.as < int > (); }
-#line 897 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
-    break;
-
-  case 33:
-#line 165 "ParaCL.y"
-  { yylhs.value.as < int > () = yystack_[0].value.as < int > (); }
-#line 903 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 63 "numgrammar-sr.y"
+                              { yylhs.value.as < int > () = yystack_[0].value.as < int > (); }
+#line 661 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
     break;
 
 
-#line 907 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 665 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
 
             default:
               break;
@@ -1080,108 +838,67 @@ namespace yy {
   }
 
 
-  const signed char parser::yypact_ninf_ = -52;
+  const signed char parser::yypact_ninf_ = -5;
 
-  const signed char parser::yytable_ninf_ = -3;
+  const signed char parser::yytable_ninf_ = -1;
 
   const signed char
   parser::yypact_[] =
   {
-      57,    62,    -6,   -52,    -7,    12,   -52,    23,   -52,    78,
-       7,   -52,   -52,    90,    30,   -52,   -52,     2,    22,   -52,
-     -52,     3,    -6,    -6,    -6,    62,    62,   -52,    62,    62,
-      62,    62,    62,    62,    62,    62,   -52,   -52,   -52,    10,
-      35,    82,    90,    90,    30,    30,     7,     7,     7,     7,
-     -52,   -52,    20,    40,   -52,    57,    57,    27,    37,    43,
-     -52,    44,   -52,    57,    47,   -52
+       0,    -5,     3,    -3,    10,    -5,     0,     0,     0,     0,
+      -5,    -5,     2,     2,     2
   };
 
   const signed char
   parser::yydefact_[] =
   {
-      26,     0,    26,    17,     0,     0,    32,    33,     5,     0,
-      22,     7,     6,    16,    25,    29,     3,    26,     0,    33,
-      30,     0,    26,    26,    26,    26,    26,     8,     0,     0,
-      26,    26,    26,    26,     0,     0,     4,     1,    31,     0,
-       0,     0,    15,    14,    24,    23,    21,    18,    20,    19,
-      27,    28,     0,     0,     9,    26,    26,    26,    26,    13,
-      10,     0,    11,    26,    26,    12
+       4,     8,     0,     0,     0,     2,     4,     0,     0,     0,
+       1,     3,     5,     7,     6
   };
 
   const signed char
   parser::yypgoto_[] =
   {
-     -52,   -52,     8,    69,   -52,   -52,    50,    63,     0,   -17,
-     -51,   -52,   -52
+      -5,    -5,    -4,    -5,     5
   };
 
   const signed char
   parser::yydefgoto_[] =
   {
-      -1,     8,     9,    10,    11,    12,    13,    14,    15,    16,
-      17,    62,    18
+      -1,     2,     3,     4,     5
   };
 
   const signed char
   parser::yytable_[] =
   {
-      36,    20,    -2,     1,    57,    58,    25,    26,    22,     2,
-      21,     1,    64,    25,    26,     3,    28,     2,    29,    38,
-       6,    19,    37,     3,     4,     5,    52,    23,     6,     7,
-      39,    40,    41,    24,    50,    51,     1,    55,    25,    26,
-      36,    36,     2,    34,    35,    59,     1,    36,     3,     4,
-       5,    53,     2,     6,     7,    60,     1,    56,     3,     4,
-       5,    63,     2,     6,     7,    65,     1,    61,     3,     4,
-       5,     1,     2,     6,     7,    42,    43,     2,     3,     4,
-       5,    25,    26,     6,     7,    25,    26,     0,     6,    19,
-      27,    44,    45,     0,    54,    30,    31,    32,    33,    46,
-      47,    48,    49
+       7,     8,     9,    12,    13,    14,     8,     9,     1,     6,
+      10,    11
   };
 
   const signed char
   parser::yycheck_[] =
   {
-      17,     1,     0,     9,    55,    56,     3,     4,    15,    15,
-       2,     9,    63,     3,     4,    21,     9,    15,    11,    16,
-      26,    27,     0,    21,    22,    23,    16,    15,    26,    27,
-      22,    23,    24,    10,    34,    35,     9,    17,     3,     4,
-      57,    58,    15,    13,    14,    18,     9,    64,    21,    22,
-      23,    16,    15,    26,    27,    18,     9,    17,    21,    22,
-      23,    17,    15,    26,    27,    18,     9,    24,    21,    22,
-      23,     9,    15,    26,    27,    25,    26,    15,    21,    22,
-      23,     3,     4,    26,    27,     3,     4,    -1,    26,    27,
-      12,    28,    29,    -1,    12,     5,     6,     7,     8,    30,
-      31,    32,    33
+       3,     4,     5,     7,     8,     9,     4,     5,     8,     6,
+       0,     6
   };
 
   const signed char
   parser::yystos_[] =
   {
-       0,     9,    15,    21,    22,    23,    26,    27,    29,    30,
-      31,    32,    33,    34,    35,    36,    37,    38,    40,    27,
-      36,    30,    15,    15,    10,     3,     4,    12,     9,    11,
-       5,     6,     7,     8,    13,    14,    37,     0,    16,    30,
-      30,    30,    34,    34,    35,    35,    31,    31,    31,    31,
-      36,    36,    16,    16,    12,    17,    17,    38,    38,    18,
-      18,    24,    39,    17,    38,    18
+       0,     8,    12,    13,    14,    15,     6,     3,     4,     5,
+       0,    15,    13,    13,    13
   };
 
   const signed char
   parser::yyr1_[] =
   {
-       0,    28,    40,    38,    38,    37,    37,    37,    37,    29,
-      32,    33,    39,    39,    30,    30,    30,    30,    34,    34,
-      34,    34,    34,    31,    31,    31,    31,    35,    35,    35,
-      36,    36,    36,    36
+       0,    11,    14,    15,    15,    12,    13,    13,    13
   };
 
   const signed char
   parser::yyr2_[] =
   {
-       0,     2,     1,     1,     2,     1,     1,     1,     2,     4,
-       7,     8,     4,     0,     3,     3,     1,     1,     3,     3,
-       3,     3,     1,     3,     3,     1,     0,     3,     3,     1,
-       2,     3,     1,     1
+       0,     2,     1,     3,     0,     3,     3,     3,     1
   };
 
 
@@ -1191,23 +908,16 @@ namespace yy {
   const char*
   const parser::yytname_[] =
   {
-  "$end", "error", "$undefined", "\"||\"", "\"&&\"", "\">\"", "\">=\"",
-  "\"<\"", "\"<=\"", "\"-\"", "\"=\"", "\"+\"", "\";\"", "\"*\"", "\"/\"",
-  "\"(\"", "\")\"", "\"{\"", "\"}\"", "\"!=\"", "\"==\"", "\"?\"",
-  "\"if\"", "\"while\"", "\"else\"", "ERR", "TYPE_NUM", "TYPE_ID",
-  "$accept", "assign", "expression", "arithmetic", "cycle", "conditional",
-  "boolean", "term", "primary", "statement", "statement_list",
-  "else_maybe", "program", YY_NULLPTR
+  "$end", "error", "$undefined", "\"=\"", "\"-\"", "\"+\"", "\";\"",
+  "ERR", "NUMBER", "'+'", "'-'", "$accept", "equals", "expr", "program",
+  "eqlist", YY_NULLPTR
   };
 
 
-  const unsigned char
+  const signed char
   parser::yyrline_[] =
   {
-       0,    77,    77,    80,    80,    83,    83,    83,    83,    86,
-      95,    98,   101,   102,   105,   110,   115,   117,   120,   125,
-     130,   135,   140,   143,   145,   147,   149,   152,   154,   156,
-     159,   161,   163,   165
+       0,    46,    46,    49,    50,    53,    61,    62,    63
   };
 
   // Print the state stack on the debug stream.
@@ -1252,7 +962,7 @@ namespace yy {
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     9,     2,    10,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -1274,11 +984,9 @@ namespace yy {
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
-       5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
-      15,    16,    17,    18,    19,    20,    21,    22,    23,    24,
-      25,    26,    27
+       5,     6,     7,     8
     };
-    const int user_token_number_max_ = 282;
+    const int user_token_number_max_ = 263;
 
     if (t <= 0)
       return yyeof_;
@@ -1289,16 +997,18 @@ namespace yy {
   }
 
 } // yy
-#line 1293 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
+#line 1001 "/home/masha/code_projects/MIPT_Ilab/ParaCL/build/parser.cc"
 
-#line 168 "ParaCL.y"
+#line 66 "numgrammar-sr.y"
 
 
 namespace yy {
-    parser::token_type yylex(parser::semantic_type* yyval,
-                             Driver* driver)
-    {
-        return driver->yylex(yyval);
-    }
-    void parser::error(const std::string&) {}
+
+parser::token_type yylex(parser::semantic_type* yylval,                         
+                         NumDriver* driver)
+{
+  return driver->yylex(yylval);
+}
+
+void parser::error(const std::string&){}
 }

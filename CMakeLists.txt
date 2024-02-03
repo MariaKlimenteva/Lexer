@@ -1,27 +1,27 @@
 cmake_minimum_required(VERSION 3.13.4)
-project(numgrammar)
+project(ParaCL)
 
 find_package(BISON REQUIRED)
 find_package(FLEX REQUIRED)
 
 if (NOT DEFINED GRAMMAR)
-  set(GRAMMAR "numgrammar-sr.y" CACHE STRING "file with grammar" FORCE)
+  set(GRAMMAR "ParaCL.y" CACHE STRING "file with grammar" FORCE)
 endif()
 
 flex_target(scanner
-  numgrammar.l
-  ${CMAKE_CURRENT_BINARY_DIR}/lexer.cc
+  ParaCL_lexer.l
+  ${CMAKE_CURRENT_BINARY_DIR}/ParaCL_lexer.cc
 )
 
 bison_target(parser
   ${GRAMMAR}
   ${CMAKE_CURRENT_BINARY_DIR}/parser.cc
-  COMPILE_FLAGS "--defines=${CMAKE_CURRENT_BINARY_DIR}/numgrammar.tab.hh")
+  COMPILE_FLAGS "--defines=${CMAKE_CURRENT_BINARY_DIR}/ParaCL.tab.hh")
 
 add_flex_bison_dependency(scanner parser)
 
 add_executable(${PROJECT_NAME} 
-  driver.cc  
+  ParaCLdriver.cc  
   ${BISON_parser_OUTPUTS}
   ${FLEX_scanner_OUTPUTS}
 )
