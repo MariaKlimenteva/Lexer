@@ -1,6 +1,6 @@
-fst = 0; // все типы int
-snd = 1;
-iters = ?; // считать с stdin
+//fst = 0; // все типы int
+//snd = 1;
+//iters = ?; // считать с stdin
 
 while (iter > 0) {
     tmp = fst;
@@ -9,4 +9,4 @@ while (iter > 0) {
     iters = iters - 1;
 }
 
-print snd; 
+//print snd; 

@@ -74,7 +74,7 @@
 
 %%
 
-program: statement_list
+program: statement_list { std::cout << "Parsing complete!" << std::endl; }
 ;
 
 statement_list: statement | statement_list statement
@@ -95,16 +95,6 @@ assign: TYPE_ID ASSIGN expression SCOLON {
 }
 ;
 
-cycle: WHILE LPAREN expression RPAREN LBRACE statement_list RBRACE {std::cout << "Цикл" <<std::endl;}
-;
-
-conditional: IF LPAREN expression RPAREN LBRACE statement_list RBRACE else_maybe
-;
-
-else_maybe: ELSE LBRACE statement_list RBRACE 
-    | %empty { $$ = 0; }
-;
-
 expression: expression AND boolean {
     $$ = ($1 && $3);
     std::cout << "Checking: " << $1 << " vs " << $3 << "; Result: " << $$ << std::endl;
@@ -119,6 +109,25 @@ expression: expression AND boolean {
 
 | INPUT { $$ = -1; }
 ;
+
+cycle: WHILE LPAREN expression RPAREN LBRACE statement_list RBRACE {
+    std::cout << "Цикл" <<std::endl;
+    std::cout << "Условие равно: " << $3 << std::endl;
+    if ($3 != 0) {
+        std::cout << "Выполняю тело цикла " << std::endl;
+        $6;
+    }
+}
+;
+
+conditional: IF LPAREN expression RPAREN LBRACE statement_list RBRACE else_maybe
+;
+
+else_maybe: ELSE LBRACE statement_list RBRACE 
+    | %empty { $$ = 0; }
+;
+
+
 
 boolean: boolean GREATEREQ arithmetic {
     $$ = ($1 >= $3);
@@ -140,7 +149,7 @@ boolean: boolean GREATEREQ arithmetic {
     std::cout << "Checking: " << $1 << " vs " << $3 << "; Result: " << $$ << std::endl;
 }
 
-| arithmetic
+| arithmetic { $$ = $1; }
 ;
 
 arithmetic: arithmetic PLUS term { $$ = $1 + $3; }
@@ -161,14 +170,16 @@ term: term MULTIPLY primary { $$ = $1 * $3; }
 
 primary: MINUS primary { $$ = -$2; }
        
-| LPAREN expression RPAREN
+| LPAREN expression RPAREN { $$ = $2; }
        
 | TYPE_NUM { 
     $$ = $1;
-    std::cout << " Присвоили число " << $$ << std::endl; 
+    std::cout << "Присвоили число " << $$ << std::endl; 
 }
        
-| TYPE_ID
+| TYPE_ID {
+    std::cout << "Присвоили переменную со значением: " << $$ << std::endl;
+}
 ;
 
 %%
